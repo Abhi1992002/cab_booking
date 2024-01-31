@@ -82,6 +82,7 @@ export const AdddressInput = ({ form }: AdddressInputProps) => {
                 <Input
                   {...field}
                   value={pickingAddress}
+                  className="border border-white/40"
                   onChange={(e) => {
                     if (!showPicking) {
                       setShowPicking(true);
@@ -122,6 +123,7 @@ export const AdddressInput = ({ form }: AdddressInputProps) => {
                 <Input
                   {...field}
                   value={destinationAddress}
+                  className="border border-white/40"
                   onChange={(e) => {
                     if (!showDestination) {
                       setShowDestination(true);

@@ -8,8 +8,13 @@ import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 import { CarSelector } from "./carSelector";
-import { carType, cardType } from "@/types";
 import { PaymentSelector } from "./paymentSelector";
+import { toast } from "sonner";
+import { addInHistory } from "@/actions/add-in-history";
+import { useRecoilValue } from "recoil";
+import { expectedDistanceState } from "@/store/atom/expectedDistance";
+import { expectedTimeState } from "@/store/atom/expectedTime";
+import { amountState } from "@/store/atom/totalAmount";
 
 type BookSidebarProps = {};
 
@@ -24,10 +29,17 @@ export const BookSidebar = ({}: BookSidebarProps) => {
     },
   });
 
+  const distance = useRecoilValue(expectedDistanceState);
+  const time = useRecoilValue(expectedTimeState);
+  const amount = useRecoilValue(amountState);
+
   function onSubmit(values: z.infer<typeof bookingSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
+    addInHistory({ values, distance, time, amount }).then((data) => {
+      if (data?.error) {
+        toast.error(data.error);
+      }
+      if (data?.success) toast.success(data.success);
+    });
   }
 
   return (
@@ -47,7 +59,7 @@ export const BookSidebar = ({}: BookSidebarProps) => {
                 variant={"outline"}
                 className=" bg-white text-black w-full"
               >
-                Reset
+                Home
               </Button>
               <Button type="submit" className="w-full ">
                 Book

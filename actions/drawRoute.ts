@@ -13,8 +13,6 @@ export const drawRoute = async ({
 
   const base_URL = "https://api.mapbox.com/directions/v5/mapbox/driving/";
 
-  const session_Token = "f3138b5a-43dc-4a1f-adf7-df6bc41f58a0";
-
   const res = await fetch(
     base_URL +
       pickingCoordinates.long +

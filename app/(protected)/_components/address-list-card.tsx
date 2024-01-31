@@ -64,20 +64,28 @@ export const AddressListCard = ({
   if (type === "pickingLocation") {
     return (
       <>
-        <div className="w-dull rounded-lg bg-white text-black">
+        <div className="w-full rounded-lg bg-white text-black py-4 mt-2 absolute z-[1000]">
           {spinner ? (
-            <MoonLoader size={30} color="#000000" />
+            <div className="w-full h-full flex items-center justify-center">
+              <MoonLoader size={30} color="#000000" />
+            </div>
           ) : (
             <div className=" space-y-3 w-full relative">
               {addressList?.suggestions &&
                 addressList.suggestions.map((item: any, i: number) => (
-                  <h1
-                    onClick={() => onClickPickingAddress(item)}
-                    key={i}
-                    className="truncate hover:cursor-pointer  text-sm font-medium text-black/50 hover:text-black "
-                  >
-                    {item.full_address}
-                  </h1>
+                  <div>
+                    {item.full_address ? (
+                      <div key={i} className="pl-3 pr-1 hover:bg-black/10 p-2">
+                        <h1
+                          onClick={() => onClickPickingAddress(item)}
+                          key={i}
+                          className="truncate hover:cursor-pointer text-sm font-medium text-black/50 hover:text-black "
+                        >
+                          {item.full_address}
+                        </h1>
+                      </div>
+                    ) : null}
+                  </div>
                 ))}
             </div>
           )}
@@ -89,20 +97,28 @@ export const AddressListCard = ({
   if (type === "destination") {
     return (
       <>
-        <div className="w-dull rounded-lg bg-white text-black">
+        <div className="w-full rounded-lg bg-white text-black py-4 mt-2 absolute z-[1000]">
           {spinner ? (
-            <MoonLoader size={30} color="#000000" />
+            <div className="w-full h-full flex items-center justify-center">
+              <MoonLoader size={30} color="#000000" />
+            </div>
           ) : (
             <div className=" space-y-3 w-full relative">
               {addressList?.suggestions &&
                 addressList.suggestions.map((item: any, i: number) => (
-                  <h1
-                    onClick={() => onClickDestinationAddress(item)}
-                    key={i}
-                    className="truncate hover:cursor-pointer  text-sm font-medium text-black/50 hover:text-black "
-                  >
-                    {item.full_address}
-                  </h1>
+                  <div>
+                    {item.full_address ? (
+                      <div key={i} className="pl-3 pr-1 hover:bg-black/10 p-2">
+                        <h1
+                          onClick={() => onClickDestinationAddress(item)}
+                          key={i}
+                          className="truncate hover:cursor-pointer text-sm font-medium text-black/50 hover:text-black "
+                        >
+                          {item.full_address}
+                        </h1>
+                      </div>
+                    ) : null}
+                  </div>
                 ))}
             </div>
           )}

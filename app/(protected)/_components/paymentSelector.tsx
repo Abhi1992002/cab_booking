@@ -15,8 +15,7 @@ import { UseFormReturn } from "react-hook-form";
 import { z } from "zod";
 
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import Image from "next/image";
-import { cardType } from "@/types";
+import { cardType } from "@prisma/client";
 import { RiMastercardFill, RiVisaLine } from "react-icons/ri";
 import { FaApplePay, FaGooglePay } from "react-icons/fa";
 import { IoCashOutline } from "react-icons/io5";
@@ -47,9 +46,7 @@ export const PaymentSelector = ({ form }: PaymentSelectorProps) => {
                 <FormItem className="flex flex-col space-y-3 items-center">
                   <FormControl>
                     <ToggleGroupItem
-                      className={
-                        "flex-1 relative border border-white/80 data-[state=on]:bg-gradient-to-tr data-[state=on]:from-green-400 data-[state=on]:to-lime-400 data-[state=on]:border-black"
-                      }
+                      className={"flex-1 relative border border-white/80 "}
                       value={cardType.MASTERCARD}
                       aria-label={cardType.MASTERCARD}
                     >
@@ -62,9 +59,7 @@ export const PaymentSelector = ({ form }: PaymentSelectorProps) => {
                 <FormItem className="flex flex-col space-y-3 items-center">
                   <FormControl>
                     <ToggleGroupItem
-                      className={
-                        "flex-1 relative border border-white/80 data-[state=on]:bg-gradient-to-tr data-[state=on]:from-green-400 data-[state=on]:to-lime-400 data-[state=on]:border-black"
-                      }
+                      className={"flex-1 relative border border-white/80"}
                       value={cardType.VISA}
                       aria-label={cardType.VISA}
                     >
@@ -77,9 +72,7 @@ export const PaymentSelector = ({ form }: PaymentSelectorProps) => {
                 <FormItem className="flex flex-col space-y-3 items-center">
                   <FormControl>
                     <ToggleGroupItem
-                      className={
-                        "flex-1 relative border border-white/80 data-[state=on]:bg-gradient-to-tr data-[state=on]:from-green-400 data-[state=on]:to-lime-400 data-[state=on]:border-black"
-                      }
+                      className={"flex-1 relative border border-white/80"}
                       value={cardType.APPLEPAY}
                       aria-label={cardType.APPLEPAY}
                     >
@@ -92,9 +85,7 @@ export const PaymentSelector = ({ form }: PaymentSelectorProps) => {
                 <FormItem className="flex flex-col space-y-3 items-center">
                   <FormControl>
                     <ToggleGroupItem
-                      className={
-                        "flex-1 relative border border-white/80 data-[state=on]:bg-gradient-to-tr data-[state=on]:from-green-400 data-[state=on]:to-lime-400 data-[state=on]:border-black"
-                      }
+                      className={"flex-1 relative border border-white/80 d"}
                       value={cardType.GOOGLEPAY}
                       aria-label={cardType.GOOGLEPAY}
                     >
@@ -107,9 +98,7 @@ export const PaymentSelector = ({ form }: PaymentSelectorProps) => {
                 <FormItem className="flex flex-col space-y-3 items-center">
                   <FormControl>
                     <ToggleGroupItem
-                      className={
-                        "flex-1 relative border border-white/80 data-[state=on]:bg-gradient-to-tr data-[state=on]:from-green-400 data-[state=on]:to-lime-400 data-[state=on]:border-black"
-                      }
+                      className={"flex-1 relative border border-white/80 "}
                       value={cardType.CASH}
                       aria-label={cardType.CASH}
                     >

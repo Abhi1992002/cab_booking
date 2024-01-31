@@ -46,6 +46,7 @@ model User {
   accounts              Account[]
   isTwoFactorEnabled    Boolean                @default(false)
   twoFactorConfirmation TwoFactorConfirmation?
+  History               History[]
 }
 
 model VerficationToken {
@@ -82,4 +83,34 @@ model TwoFactorConfirmation {
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([userId])
+}
+
+enum carType {
+  ECONOMY
+  MINIVAN
+  COMFORT
+  LUXURY
+  ELECTRIC
+}
+
+enum cardType {
+  MASTERCARD
+  VISA
+  APPLEPAY
+  GOOGLEPAY
+  CASH
+}
+
+model History {
+  id       String   @id @default(cuid())
+  from     String   @db.VarChar(500)
+  to       String   @db.VarChar(500)
+  carType  carType
+  payment  cardType
+  distance Float
+  time     Float
+  amount   Float
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 }

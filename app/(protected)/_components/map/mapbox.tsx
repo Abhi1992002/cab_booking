@@ -58,8 +58,6 @@ export function MapBox() {
           setDrawRouteCoordinates(value?.result);
           setExpectedTime(value?.result.routes[0].duration);
           setExpectedDistance(value?.result.routes[0].distance);
-          console.log(expectedDistance, "distance");
-          console.log(expectedTime, "time");
         }
       );
     }

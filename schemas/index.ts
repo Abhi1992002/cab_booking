@@ -1,4 +1,4 @@
-import { carType, cardType } from "@/types";
+import { carType, cardType } from "@prisma/client";
 import { UserRole } from "@prisma/client";
 import * as z from "zod";
 
