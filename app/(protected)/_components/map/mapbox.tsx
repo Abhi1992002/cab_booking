@@ -13,7 +13,7 @@ import { drawRouteCoordinatesState } from "@/store/atom/drawRouteCoordinates";
 import { RouteLayer } from "./route";
 import { expectedDistanceState } from "@/store/atom/expectedDistance";
 import { expectedTimeState } from "@/store/atom/expectedTime";
-export function MapBox() {
+function MapBox() {
   const currentLocation = useCurrentLocation();
   const mapRef = useRef<any>();
 
@@ -95,3 +95,5 @@ export function MapBox() {
     </>
   );
 }
+
+export default MapBox;

@@ -1,6 +1,5 @@
 "use client";
-import React, { useState } from "react";
-import { MapBox } from "../../_components/map/mapbox";
+import React, { useEffect, useState } from "react";
 import { DistanceTime } from "../../_components/map/distanceTime";
 import { useRecoilValue } from "recoil";
 import { expectedDistanceState } from "@/store/atom/expectedDistance";
@@ -12,11 +11,24 @@ import dynamic from "next/dynamic";
 type BookingProps = {};
 
 const BookSidebar = dynamic(() => import("../../_components/book-sidebar"));
+const MapBox = dynamic(() => import("../../_components/map/mapbox"));
 
 const Book = ({}: BookingProps) => {
   const distance = useRecoilValue(expectedDistanceState);
   const time = useRecoilValue(expectedTimeState);
   const [showSidebar, setShowSidebar] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsSmallScreen(window.innerWidth < 468); // for example, 768px can be your breakpoint for a small screen
+    };
+
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
 
   return (
     <div className="w-full px-3 h-[87%] flex flex-col">
@@ -49,7 +61,7 @@ const Book = ({}: BookingProps) => {
               Book
             </Button>
           )}
-          <MapBox />
+          {isSmallScreen ? !showSidebar && <MapBox /> : <MapBox />}
         </div>
       </div>
     </div>
