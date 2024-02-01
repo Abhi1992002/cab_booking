@@ -23,7 +23,7 @@ type BookSidebarProps = {
   setSidebar: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export const BookSidebar = ({ setSidebar }: BookSidebarProps) => {
+const BookSidebar = ({ setSidebar }: BookSidebarProps) => {
   const form = useForm<z.infer<typeof bookingSchema>>({
     resolver: zodResolver(bookingSchema),
     defaultValues: {
@@ -101,3 +101,5 @@ export const BookSidebar = ({ setSidebar }: BookSidebarProps) => {
     </div>
   );
 };
+
+export default BookSidebar;

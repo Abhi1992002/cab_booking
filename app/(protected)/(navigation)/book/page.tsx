@@ -1,22 +1,23 @@
 "use client";
 import React, { useState } from "react";
-import { BookSidebar } from "../../_components/book-sidebar";
 import { MapBox } from "../../_components/map/mapbox";
-import { useCurrentLocation } from "@/hooks/use-current-location";
 import { DistanceTime } from "../../_components/map/distanceTime";
 import { useRecoilValue } from "recoil";
 import { expectedDistanceState } from "@/store/atom/expectedDistance";
 import { expectedTimeState } from "@/store/atom/expectedTime";
-import { DrawerSidebar } from "../../_components/book/drawer-sidebar";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import dynamic from "next/dynamic";
 
 type BookingProps = {};
+
+const BookSidebar = dynamic(() => import("../../_components/book-sidebar"));
 
 const Book = ({}: BookingProps) => {
   const distance = useRecoilValue(expectedDistanceState);
   const time = useRecoilValue(expectedTimeState);
   const [showSidebar, setShowSidebar] = useState(false);
+
   return (
     <div className="w-full px-3 h-[87%] flex flex-col">
       <div className="w-full relative  flex h-full  flex-1 ">
@@ -28,12 +29,8 @@ const Book = ({}: BookingProps) => {
               "z-[100] translate-x-0 transition-all duration-300 ease-in-out"
           )}
         >
-          <BookSidebar setSidebar={setShowSidebar} />
+          {showSidebar && <BookSidebar setSidebar={setShowSidebar} />}
         </div>
-
-        {/* <div className="block lg:hidden absolute z-[1000] bottom-4 w-full">
-          <DrawerSidebar />
-        </div> */}
 
         {/* map */}
         <div className="flex-1 w-full h-full rounded-xl overflow-hidden relative">

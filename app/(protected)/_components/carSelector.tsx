@@ -67,6 +67,7 @@ export const CarSelector = ({ form }: CarSelectorProps) => {
                           width={90}
                           height={100}
                           alt="carImg"
+                          loading="lazy"
                         />
                       </ToggleGroupItem>
                     </FormControl>
