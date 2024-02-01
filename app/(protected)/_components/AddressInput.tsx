@@ -74,13 +74,14 @@ export const AdddressInput = ({ form }: AdddressInputProps) => {
         name="pickingLocation"
         render={({ field }) => (
           <FormItem>
-            <FormLabel className="text-lg text-white/80">
+            <FormLabel className="text-base md:text-lg text-white/80">
               Picking Location
             </FormLabel>
             <FormControl>
               <div className="relative w-full">
                 <Input
                   {...field}
+                  autoComplete="off"
                   value={pickingAddress}
                   className="border border-white/40"
                   onChange={(e) => {
@@ -117,11 +118,14 @@ export const AdddressInput = ({ form }: AdddressInputProps) => {
         name="destination"
         render={({ field }) => (
           <FormItem>
-            <FormLabel className="text-lg text-white/80">Destination</FormLabel>
+            <FormLabel className="text-base md:text-lg text-white/80">
+              Destination
+            </FormLabel>
             <FormControl>
               <div className="relative w-full">
                 <Input
                   {...field}
+                  autoComplete="off"
                   value={destinationAddress}
                   className="border border-white/40"
                   onChange={(e) => {

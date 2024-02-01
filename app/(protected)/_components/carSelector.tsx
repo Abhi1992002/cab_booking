@@ -39,7 +39,9 @@ export const CarSelector = ({ form }: CarSelectorProps) => {
         name="carTypes"
         render={({ field }) => (
           <FormItem className="space-y-3">
-            <FormLabel className="text-lg text-white/80">Choose Car</FormLabel>
+            <FormLabel className="text-base md:text-lg text-white/80">
+              Choose Car
+            </FormLabel>
             <FormControl>
               <ToggleGroup
                 onValueChange={field.onChange}

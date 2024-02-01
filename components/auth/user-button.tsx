@@ -29,7 +29,7 @@ export const UserButton = ({}: UserButtonProps) => {
             </AvatarFallback>
           </Avatar>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-[40]" align="end">
+        <DropdownMenuContent className="w-[40] z-[1002]" align="end">
           <LogoutButton>
             <DropdownMenuItem className="cursor-pointer">
               <ExitIcon className="h-4 w-4 mr-2" />

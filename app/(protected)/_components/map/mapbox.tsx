@@ -16,6 +16,7 @@ import { expectedTimeState } from "@/store/atom/expectedTime";
 export function MapBox() {
   const currentLocation = useCurrentLocation();
   const mapRef = useRef<any>();
+
   const destinationCoordinates = useRecoilValue(destinationCoordinatesState);
   const pickingCoordinates = useRecoilValue(pickingCoordinatesState);
   const [drawRouteCoordinates, setDrawRouteCoordinates] = useRecoilState(

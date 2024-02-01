@@ -13,8 +13,8 @@ export const How = ({}: HowProps) => {
   const [videoPlaying, setVideoPlaying] = useState(false);
   return (
     <div className="w-full flex items-center justify-center pt-[100px]">
-      <div className="w-[80%]">
-        <h1 className="text-white text-5xl text-center">
+      <div className="w-[98%] md:w-[80%]">
+        <h1 className="text-white text-4xl md:text-5xl text-center px-[20px]">
           Get Started in Seconds: Watch our short tutorial to see how easy it is
           to book your next ride.
         </h1>

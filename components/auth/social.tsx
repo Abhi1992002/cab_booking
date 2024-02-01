@@ -32,7 +32,7 @@ export const Social = ({}: SocialProps) => {
         variant={"outline"}
         onClick={() => onClick("github")}
       >
-        <FaGithub className="h-5 w-5" />
+        <FaGithub className="h-5 w-5 text-black" />
       </Button>
     </div>
   );

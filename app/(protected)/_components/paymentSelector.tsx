@@ -32,7 +32,7 @@ export const PaymentSelector = ({ form }: PaymentSelectorProps) => {
         name="paymentType"
         render={({ field }) => (
           <FormItem className="space-y-3 w-full">
-            <FormLabel className="text-lg text-white/80">
+            <FormLabel className="text-base md:text-lg text-white/80">
               Payment Method
             </FormLabel>
             <FormControl className="w-full">

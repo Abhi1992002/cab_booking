@@ -136,7 +136,7 @@ export const LoginForm = ({}: LoginFormProps) => {
                         variant={"link"}
                         className="px-0 font-normal"
                       >
-                        <Link href={"/auth/reset"}>Forgot Passord?</Link>
+                        <Link href={"/auth/reset"}>Forgot Password?</Link>
                       </Button>
                       <FormMessage />
                     </FormItem>

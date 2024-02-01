@@ -85,18 +85,28 @@ export const bookingSchema = z.object({
       message: "Destination can't be empty",
     })
     .max(500),
-  carTypes: z.enum([
-    carType.ECONOMY,
-    carType.COMFORT,
-    carType.ELECTRIC,
-    carType.LUXURY,
-    carType.MINIVAN,
-  ]),
-  paymentType: z.enum([
-    cardType.MASTERCARD,
-    cardType.APPLEPAY,
-    cardType.GOOGLEPAY,
-    cardType.CASH,
-    cardType.VISA,
-  ]),
+  carTypes: z.enum(
+    [
+      carType.ECONOMY,
+      carType.COMFORT,
+      carType.ELECTRIC,
+      carType.LUXURY,
+      carType.MINIVAN,
+    ],
+    {
+      errorMap: (issue, ctx) => ({ message: "Please select a car type" }),
+    }
+  ),
+  paymentType: z.enum(
+    [
+      cardType.MASTERCARD,
+      cardType.APPLEPAY,
+      cardType.GOOGLEPAY,
+      cardType.CASH,
+      cardType.VISA,
+    ],
+    {
+      errorMap: (issue, ctx) => ({ message: "Please select a payment method" }),
+    }
+  ),
 });

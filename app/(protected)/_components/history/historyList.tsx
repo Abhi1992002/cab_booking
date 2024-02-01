@@ -10,7 +10,13 @@ type HistoryListProps = {};
 
 export const HistoryList = ({}: HistoryListProps) => {
   const [historyList, setHistoryList] = useState<History[]>(null!);
-  useEffect(() => {
+
+  const getHistoryList = (id?: string) => {
+    if (id) {
+      setHistoryList((currentHistoryList) =>
+        currentHistoryList.filter((history) => history.id !== id)
+      );
+    }
     getHistory().then((data) => {
       if (data.error) {
         toast(data.error);
@@ -19,18 +25,28 @@ export const HistoryList = ({}: HistoryListProps) => {
         setHistoryList(data.success);
       }
     });
-  });
+  };
+
+  useEffect(() => {
+    getHistoryList();
+  }, []);
   return (
     <div className="w-full h-full flex items-center justify-center">
-      <div className="w-[80%] py-4 h-full">
+      <div className="w-[90%] md:w-[80%] py-2 md:py-4 h-full">
         {historyList ? (
           <>
             <h1 className="text-white text-3xl font-medium text-center my-8">
               History
             </h1>
             {historyList?.map((history) => (
-              <div className={history.id}>
-                {<HistoryCard history={history} />}
+              <div key={history.id}>
+                {
+                  <HistoryCard
+                    key={history.id}
+                    history={history}
+                    getHistoryList={getHistoryList}
+                  />
+                }
               </div>
             ))}
           </>

@@ -28,12 +28,12 @@ export const SmallNavbar = ({}: SmallNavbarProps) => {
     });
   };
   return (
-    <nav className="flex text-white justify-center items-center p-1  w-full shadow-sm border-b border-white/30 mb-2 sticky top-0 bg-black ">
-      <div className="flex gap-x-16">
+    <nav className="flex text-white justify-center items-center p-1  w-full shadow-sm border-b border-white/30 mb-2 sticky top-0 bg-black/40 z-[1000] backdrop-blur-md">
+      <div className=" gap-x-1 sm:flex sm:gap-x-4 md:gap-x-16">
         <Button
           asChild
           variant={"link"}
-          className={cn("text-sm", viewId === "main" && "underline")}
+          className={cn("text-xs sm:text-sm", viewId === "main" && "underline")}
         >
           <Link href={"#main"} onClick={handleScroll}>
             Main
@@ -42,7 +42,7 @@ export const SmallNavbar = ({}: SmallNavbarProps) => {
         <Button
           asChild
           variant={"link"}
-          className={cn("text-sm", viewId === "how" && "underline")}
+          className={cn("text-xs sm:text-sm", viewId === "how" && "underline")}
         >
           <Link href={"#how"} onClick={handleScroll}>
             How to use?
@@ -51,7 +51,7 @@ export const SmallNavbar = ({}: SmallNavbarProps) => {
         <Button
           asChild
           variant={"link"}
-          className={cn("text-sm", viewId === "tech" && "underline")}
+          className={cn("text-xs sm:text-sm", viewId === "tech" && "underline")}
         >
           <Link href={"#tech"} onClick={handleScroll}>
             Tech stack
@@ -60,7 +60,10 @@ export const SmallNavbar = ({}: SmallNavbarProps) => {
         <Button
           asChild
           variant={"link"}
-          className={cn("text-sm", viewId === "contact" && "underline")}
+          className={cn(
+            "text-xs sm:text-sm",
+            viewId === "contact" && "underline"
+          )}
         >
           <Link href={"#contact"} onClick={handleScroll}>
             Contact

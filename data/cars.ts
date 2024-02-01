@@ -33,7 +33,7 @@ export const cars = [
     value: carType.ELECTRIC,
     "aria-label": carType.ELECTRIC,
     charges: 2.3,
-    name: "Luxury",
+    name: "Electric",
     img: "/car/5.png",
   },
 ];

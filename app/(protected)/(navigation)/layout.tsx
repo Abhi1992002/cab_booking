@@ -8,7 +8,7 @@ type ProtectedLayoutProps = {
 const ProtectedLayout = ({ children }: ProtectedLayoutProps) => {
   return (
     <>
-      <div className="h-full w-full bg-black">
+      <div className="h-full w-full bg-black overflow-hidden">
         <Navbar />
         {children}
       </div>

@@ -27,7 +27,7 @@ export default async function RootLayout({
       <html lang="en">
         <body className={cn(montserrat.className, "scroller")}>
           <Provider>
-            <Toaster />
+            <Toaster richColors position="top-center" />
             {children}
           </Provider>
         </body>
