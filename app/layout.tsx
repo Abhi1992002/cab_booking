@@ -6,8 +6,8 @@ import { SessionProvider } from "next-auth/react";
 import { Toaster } from "sonner";
 import { Provider } from "@/components/providers";
 import { cn } from "@/lib/utils";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
-const inter = Inter({ subsets: ["latin"] });
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -27,6 +27,7 @@ export default async function RootLayout({
       <html lang="en">
         <body className={cn(montserrat.className, "scroller")}>
           <Provider>
+            <SpeedInsights />
             <Toaster richColors position="top-center" />
             {children}
           </Provider>
